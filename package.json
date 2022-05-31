@@ -1,0 +1,24 @@
+{
+  "name": "apprestapi",
+  "version": "1.0.0",
+  "description": "belajar app rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hilmyha/apprestapi.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": "haidar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hilmyha/apprestapi/issues"
+  },
+  "homepage": "https://github.com/hilmyha/apprestapi#readme"
+}
