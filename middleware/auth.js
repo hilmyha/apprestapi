@@ -1,6 +1,6 @@
 var connection = require('../koneksi');
 var mysql = require('mysql');
-var md5 = require('MD5');
+var md5 = require('md5');
 var response = require('../res');
 var jwt = require('jsonwebtoken');
 var config = require('../config/secret');
@@ -15,10 +15,12 @@ exports.registrasi = function(req, res) {
         role: req.body.role,
         tanggal_daftar: new Date()
     }
-    var query = "SELECT email FROM ?? WHERE ??";
+    
+    var query = "SELECT email FROM ?? WHERE ??=?";
     var table = ["user", "email", post.email];
 
-    query = mysql.format(query.table);
+    query = mysql.format(query, table);
+
     connection.query(query, function(error, rows) {
         if (error) {
             console.log(error);
@@ -28,6 +30,7 @@ exports.registrasi = function(req, res) {
                 var table = ["user"];
 
                 query = mysql.format(query, table);
+
                 connection.query(query, post, function(error, rows) {
                     if (error) {
                         console.log(error);
@@ -36,7 +39,7 @@ exports.registrasi = function(req, res) {
                     }
                 });
             } else {
-                response.ok("Email sudah terdaftar");
+                response.ok("Email sudah terdaftar", res);
             }
         }
     });
